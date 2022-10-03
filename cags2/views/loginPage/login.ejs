@@ -1,0 +1,23 @@
+<!Doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login!</title>
+<!--style for this html file-->
+  <%-include('./loginPage/style.ejs')%>
+
+</head>
+
+<body>
+  <% if(messages.error){ %>
+  <%= messages.error %>
+  <% } %> 
+
+  <%-include('./loginPage/form.ejs')%>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <%-include('./loginPage/script.ejs')%>
+
+</body>
+
+</html>
