@@ -29,7 +29,7 @@ app.get('/',checkNotAuth,renderFile.starterPage);//starting page
 app.get('/home',checkAuth,renderFile.homePage)//home page after login
 app.get('/signUp',checkNotAuth,renderFile.signUp);//sends user to sign up page
 app.get('/login',checkNotAuth,renderFile.login);//login page
-app.get('/IntegratedI',renderFile.integrated1);//Math 1 page
+app.get('/Integrated1',checkAuth,renderFile.integrated1);//Math 1 page
 
 app.post('/signUp',checkNotAuth,(req,res)=>signUp(req,res));//POST request to sign up
 app.post('/login',checkNotAuth,initializePassport.authenticateRedirect);//passport.authenticate failure/success redirect
