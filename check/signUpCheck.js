@@ -9,10 +9,10 @@ const check = async function (username,password,confirmPassword){
     let run = async ()=>{
         let usercount = await userC.find({Username:username}).count()
         if(usercount>0){
-            console.log('returning 1')
+            console.log('Username taken')
             return 1//{status:false, message:"Username Taken"}
         }else{
-            console.log('returning 0')
+            console.log('Valid username and password')
             return 0//username and password is valid(permission to sign up)
         }
       }
