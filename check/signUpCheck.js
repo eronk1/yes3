@@ -1,35 +1,35 @@
 const userC = require('../dataBase/userLoginInfo');
-
 const check = async function (username,password,confirmPassword){
     const user = `${username}`.length;
     const pass = `${password}`.length;
     const confirmPass = `${confirmPassword}`.length;
-    console.log('check1')
     if(password===confirmPassword&&3<=user&&user<=18&&6<=pass&&pass<=72){
     let run = async ()=>{
         let usercount = await userC.find({Username:username}).count()
         if(usercount>0){
             console.log('Username taken')
-            return {status:false,problem:1, message:"Username Taken"}
+            return 1
         }else{
             console.log('Valid username and password')
-            return {status:true}//username and password is valid(permission to sign up)
+            return 0//username and password is valid(permission to sign up)
         }
       }
     return await run()
 
     }else if(user==0){
-        return {status:false,problem:1,message:"Please input Username"}//no username
+        return 2//no username
     }else if(pass==0){
-        return {status:false,problem:2,message:"Please input Password"}//no password
+        return 3//no password
     }else if(confirmPass==0){
-        return {status:false,problem:3,message:"Please confirm your password"}//no confirm password
+        return 4//no confirm password
     }else if(password!==confirmPassword){
-        return {status:false,problem:3,message:"Passwords do not match"}//passwords do not match
+        return 5//passwords do not match
     }else{
-        return {status:false,problem:4,message:"Something went wrong"}//something went wrong
+        return 6//something went wrongS
     }
 }
+//async function hi(){findUsers.then(value => console.log(value))}
+//hi();
 
 
 module.exports = check;

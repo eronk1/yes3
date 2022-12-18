@@ -7,7 +7,7 @@ const signUp = (req,res)=>{
     console.log("there is an error?")
     findUsername.then(value => console.log(value))
 
-    findUsername.then(value => res.render('signUpPage/signUp',{Username: value, usernameLength: value.length}))
+    findUsername.then(value => res.render('signUpPage/signUp',{status:true,problem:0, message:"Something went wrong",Username: value}))
 };
 const login = (req,res)=>{res.render('loginPage/login')};
 const integrated1 = (req,res)=>{res.render('integrated1Views/integrated1')};
