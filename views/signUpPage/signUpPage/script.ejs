@@ -16,5 +16,11 @@
         console.log($('#name').val());
         $('#signUpForm').submit();
     });
+    $('#backButton').on('click',()=>{
+        location.href = "/";
+    })
+    $('#loginButton').on('click',()=>{
+        location.href = "/login";
+    })
      console.log(usernames[0])
 </script>

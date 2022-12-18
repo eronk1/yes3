@@ -1,23 +1,27 @@
-<section class="signUp">
+<section id="sideButtons">
+<button id="backButton">Back to home</button>
+<button id="loginButton">Login</button>
+</section>
+<section id="signUp">
+  <p id="formTitle">Sign up to start learning!</p>
   <form id="signUpForm" action="/signUp" method="POST">
-        <div id="nameS">
-          <label for="name">Choose Your Username</label>
-          <input type="text" id="name" name="username" required>
-        </div>
-        <div id="passwordS">
-          <label for="password">Create Password</label>
-          <input type="password" id="password" name="password" required>
-        </div>
-        <div id="confirmPasswordS">
-          <label for="password">Confirm Password</label>
-          <input type="password" id="confirmPassword" name="confirmPassword" required>
-        </div>
+      <div id="nameS">
+        <label for="name">Choose Your Username</label>
+        <input type="text" id="name" name="username" placeholder="cags2" required>
+        <p id="userErrorText">Username is taken</p>
+      </div>
+      <div id="passwordS">
+        <label for="password">Create Password</label>
+        <input type="password" id="password" name="password" placeholder="Make it secure!" required>
+        <p id="passErrorText">Input you password</p>
+      </div>
+      <div id="confirmPasswordS">
+        <label for="password">Confirm Password</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Dont forget!" required>
+        <p id="cPassErrorText">Confirm Your password</p>
+      </div>
   </form>
     <div id="buttonHeights">
-      <p id="#errorText"> 
-
-      </p>
       <button id="submitButton">Sign Up!</button>
     </div>
-
 </section>
