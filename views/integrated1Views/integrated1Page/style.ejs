@@ -4,6 +4,7 @@ html{
 }
 body{
     background-color: rgb(0, 221, 255);
+    margin: 0px;
 }
 section{
     display: grid;
@@ -17,8 +18,7 @@ p{
 .buttonStyle{
     width: fit-content;
     height: 80px;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin: 30px;
 }
 .buttonStyle button:hover{
     cursor:default;
@@ -43,10 +43,32 @@ p{
     border-width: 8px;
     border-radius: 7px;
 }
+.arrow {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+}
+.up {
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+}
+
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+.arrowButton{
+    
+}
 #levelButtons{
     display: grid;
     place-items: center;
 }
-
+@media screen and (min-device-width: 1100px) and (max-device-width: 1600px){
+    .buttonStyle{
+        margin: 22px;
+    }
+}
 
 </style>

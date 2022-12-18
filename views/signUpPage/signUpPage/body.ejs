@@ -1,0 +1,23 @@
+<section class="signUp">
+  <form id="signUpForm" action="/signUp" method="POST">
+        <div id="nameS">
+          <label for="name">Choose Your Username</label>
+          <input type="text" id="name" name="username" required>
+        </div>
+        <div id="passwordS">
+          <label for="password">Create Password</label>
+          <input type="password" id="password" name="password" required>
+        </div>
+        <div id="confirmPasswordS">
+          <label for="password">Confirm Password</label>
+          <input type="password" id="confirmPassword" name="confirmPassword" required>
+        </div>
+  </form>
+    <div id="buttonHeights">
+      <p id="#errorText"> 
+          <%= Username %> 
+      </p>
+      <button id="submitButton">Sign Up!</button>
+    </div>
+
+</section>

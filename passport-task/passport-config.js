@@ -8,18 +8,19 @@ const session = require('express-session');
 function initializePassport(passport,getUserByUsername,getUserById){
     const authenticateUser = async (username,password,done)=>{
         const user = await getUserByUsername(username)
-        if(user==null){
+        if(user[0]==null){
             return done(null,false,{message:"Username not found"})
         }
-
         try{
             if(await bcrypt.compare(password,user[0].Password)){
                 return done(null,user)
             }else{
+                console.log(user[0])
                 return done(null,false,{message: 'Password incorrect'})
             }
         }catch(e){
-            return done(e)
+            console.log("errored")
+            return done(null,false,{message: 'Something went wrong'})
         }
     }
 

@@ -7,6 +7,9 @@ const app = express();
 const mongoose = require('mongoose');
 const flash = require('express-flash');
 const passport = require('passport');
+const userC = require('./dataBase/userLoginInfo');
+
+
 
 const signUp = require('./action/signUp');
 const initializePassport = require('./passport-task/passport-config');
@@ -24,6 +27,7 @@ app.use(flash());
 app.use(initializePassport.checkSession);
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(express.static('public'));
 
 app.get('/',checkNotAuth,renderFile.starterPage);//starting page
 app.get('/home',checkAuth,renderFile.homePage)//home page after login

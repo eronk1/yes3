@@ -1,3 +1,20 @@
 <script>
-    
+    const usernames = [];
+    // <%for(let username of Username){%>
+         usernames.push("<%=username%>");
+    // <%}%>
+    $('#name').keyup(function(){
+        for(let username of usernames){
+            if(username===$(this).val()){
+                console.log($(this).val()+" already in use");
+            }
+        }
+
+    });
+    $('#submitButton').on('click',()=>{
+        console.log("submitting form");
+        console.log($('#name').val());
+        $('form').submit();
+    });
+     console.log(usernames[0])
 </script>

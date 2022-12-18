@@ -5,7 +5,8 @@ const userSchema = new mongoose.Schema({
 })
 const user = mongoose.model("userInfo",userSchema);
 async function run(username,password){
-    const wat = await user.create({Username: username, Password: password});
+    console.log("saving " + await password)
+    await user.create({Username: username, Password: password});
 }
 //exports database
 module.exports = user;

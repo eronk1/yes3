@@ -1,5 +1,3 @@
-const express = require('express');
-const app = express();
 const userC = require('../dataBase/userLoginInfo');
 const check = require('../check/signUpCheck');
 const bcrypt = require('bcrypt');
@@ -12,10 +10,24 @@ const run = async (req,res)=>{
         const salt = await bcrypt.genSalt();
         const hashedPassword = await bcrypt.hash(pass,salt);
         userC.createAccount(user,hashedPassword);
+        res.render('loginPage/login',await check(user,pass,confirmPass))
     }else{
         console.log('username or password is not valid');
-        // res.render('signUpPage/signUp',{message:check(user,pass,confirmPass).message})
+        res.render('signUpPage/signUp',await check(user,pass,confirmPass))
     }
 }
 
+function findUsername() {
+    const allUser = [];
+    return new Promise((resolve, reject) => {
+        userC.find(function(err, result) {
+            if (err) throw err;
+            for(let user of result){
+                allUser.push(user.Username);
+            }
+            resolve(allUser);
+        })
+    })
+    }
 module.exports = run
+module.exports.findUsername = findUsername();
