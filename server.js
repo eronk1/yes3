@@ -36,9 +36,13 @@ app.get('/login',checkNotAuth,renderFile.login);//login page
 app.get('/Integrated1',checkAuth,renderFile.integrated1);//Math 1 page
 app.get('/int1Variables',checkAuth,renderFile.integrated1Variables);
 
-app.post('/signUp',checkNotAuth,(req,res)=>signUp(req,res));//POST request to sign up
+app.post('/signUp',checkNotAuth,(req,res)=>{signUp(req,res)});//POST request to sign up
 app.post('/login',checkNotAuth,initializePassport.authenticateRedirect);//passport.authenticate failure/success redirect
-
-app.delete('/logout',LogOut);
+app.post('/logout',checkAuth, function(req, res, next) {
+    req.logout(function(err) {
+      if (err) { return next(err); }
+      res.redirect('/');
+    });
+  });
 
 app.listen(process.env.PORT,()=>{console.log(`Listening on port ${process.env.PORT}`)});//listening on PORT

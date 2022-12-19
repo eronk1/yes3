@@ -25,9 +25,24 @@ input{
     background-color: #ffffeb;
     border: 5px solid #5a5a5a;
     border-radius: 5px;
+    outline:none;
 }
 p{
     margin: 0px;
+}
+.nonClickableButton {
+    background-color: rgba(172, 255, 47, 0.5) !important;
+    border: 5px solid rgba(0, 100, 0, 0.4) !important;
+    color: #0000005c !important;
+    pointer-events: none !important;
+}
+.wrongInput{
+    border: 5px solid red !important;
+    background-color: #ffffbb !important;
+}
+.correctInput{
+    border: 5px solid rgb(0, 255, 0) !important;
+    background-color: #ffffeb !important;
 }
 #loginButton{
     width: fit-content;

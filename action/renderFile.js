@@ -4,9 +4,6 @@ const starterPage = (req,res)=>{res.render('starterPage/starter')};
 const homePage = (req,res)=>{res.render('homePage/home',{name: req.user[0].Username})};
 
 const signUp = (req,res)=>{
-    console.log("there is an error?")
-    findUsername.then(value => console.log(value))
-
     findUsername.then(value => res.render('signUpPage/signUp',{status:true,problem:0, message:"Something went wrong",Username: value}))
 };
 const login = (req,res)=>{res.render('loginPage/login')};

@@ -3,14 +3,122 @@
     // <%for(let username of Username){%>
          usernames.push("<%=username%>");
     // <%}%>
+    //password 6-72
+    let checkUser = false;
+    let checkPass = false;
+    let checkCPass = false;
+    let currentPass = '';
     $('#name').keyup(function(){
+        checkUser = true;
+        if($(this).val() == ''){
+            if($('#name').hasClass('correctInput')){
+                $('#name').removeClass('correctInput')
+            }
+            $('#name').addClass('wrongInput');
+            $('#userErrorText').text('Please Input Username');
+        }
+        else if(!/^[a-zA-Z]+$/.test($(this).val().replace(/[0-9]/g, ''))){
+            if($('#name').hasClass('correctInput')){
+                $('#name').removeClass('correctInput')
+            }
+            $('#name').addClass('wrongInput');
+            $('#userErrorText').text('Username has only letters and numbers');
+        }else{
         for(let username of usernames){
-            if(username===$(this).val()){
-                console.log($(this).val()+" already in use");
+            if(username.toLowerCase()==$(this).val().toLowerCase()){
+                checkUser = false;
+                if($('#name').hasClass('correctInput')){
+                    $('#name').removeClass('correctInput')
+                }
+                $('#name').addClass('wrongInput');
+                $('#userErrorText').text('username already in use');
             }
         }
-
+        if($(this).val().length<3||$(this).val().length>18){
+            checkUser = false;
+            if($('#name').hasClass('correctInput')){
+                $('#name').removeClass('correctInput');
+            }
+            $('#name').addClass('wrongInput');
+            $('#userErrorText').text('username must be 3 to 18 characters long');
+        }
+        if($(this).val().length<3||$(this).val().length>18){
+            checkUser = false;
+            if($('#name').hasClass('correctInput')){
+                $('#name').removeClass('correctInput');
+            }
+            $('#name').addClass('wrongInput');
+            $('#userErrorText').text('username must be 3 to 18 characters long');
+        }
+        if(checkUser){
+            if($('#name').hasClass('wrongInput')){
+                $('#name').removeClass('wrongInput')
+            }
+            $('#userErrorText').text('');
+            $('#name').addClass('correctInput');
+        }
+    }
     });
+    $('#password').keyup(function(){
+        checkPass = true;
+        currentPass = $(this).val();
+        if($(this).val().length<6||$(this).val().length>72){
+            checkPass = false;
+            if($('#password').hasClass('correctInput')){
+                $('#password').removeClass('correctInput')
+            }
+            $('#password').addClass('wrongInput');
+            $('#passErrorText').text('Password must be 6-72 characters long');
+        }
+        if(checkPass){
+            if($('#password').hasClass('wrongInput')){
+                $('#password').removeClass('wrongInput')
+            }
+            $('#passErrorText').text('');
+            $('#password').addClass('correctInput');
+        }
+    });
+    $('#confirmPassword').keyup(function(){
+        checkCPass = true;
+        if(!checkPass){
+            checkCPass = false;
+            $('#cPassErrorText').text('Please input a valid Password first')
+        }else{
+            if($(this).val() == ''){
+                checkCPass = false;
+                if($('#confirmPassword').hasClass('correctInput')){
+                    $('#confirmPassword').removeClass('correctInput')
+                }
+                $('#confirmPassword').addClass('wrongInput');
+                $('#cPassErrorText').text('Please confirm your password');
+            }else if($(this).val() !== currentPass){
+                checkCPass = false;
+                if($('#confirmPassword').hasClass('correctInput')){
+                    $('#confirmPassword').removeClass('correctInput')
+                }
+                $('#confirmPassword').addClass('wrongInput');
+                $('#cPassErrorText').text('Passwords do not match');
+            }
+            if(checkCPass && checkPass){
+                if($('#confirmPassword').hasClass('wrongInput')){
+                    $('#confirmPassword').removeClass('wrongInput')
+                }
+                $('#cPassErrorText').text('');
+                $('#confirmPassword').addClass('correctInput');
+            }
+        }
+    })
+    $('input').keyup(function(){
+        if(checkUser && checkCPass && checkPass){
+            if($('#submitButton').hasClass('nonClickableButton')){
+                $('#submitButton').removeClass('nonClickableButton')
+            }
+        }else{
+            if(!$('#submitButton').hasClass('nonClickableButton')){
+                $('#submitButton').addClass('nonClickableButton')
+            }
+        }
+    })
     $('#submitButton').on('click',()=>{
         console.log("submitting form");
         console.log($('#name').val());
