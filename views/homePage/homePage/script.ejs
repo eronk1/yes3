@@ -1,4 +1,40 @@
 <script>
-    $('#logoutButton').on('click',()=>{
-    })
+let activeGear = false;
+ $('#gearIcon').on("click", () => {
+    if ($('#list').hasClass("show")) {
+        $('#list').removeClass("show");
+    } else {
+        $('#list').addClass("show");
+    }
+    if(!activeGear){
+        activeGear=true;
+        $('#gearIcon').addClass("gearActiveColor");
+    }else{
+        activeGear=false;
+        $('#gearIcon').removeClass("gearActiveColor");
+    }
+  });
+  $(document).on("click", function(event) {
+    console.log(event.target.classList.contains('settingsParElement'))
+    if (!event.target.classList.contains('settingsParElement')&&event.target.id!='gearIcon'&&activeGear) {
+        console.log("Activatd")
+        $('#gearIcon').removeClass("gearActiveColor");
+        $('#list').removeClass("show");
+        activeGear=false;
+    }
+});
+  $('#settingsItem3').on('click',()=>{
+    $.ajax({
+        type: "POST",
+        url: "/logout",
+        success: function(response) {
+            console.log("Successfully logged out")
+            window.location.href = "/login";
+        },
+        error: function(error) {
+            $('#settingsItem3').addClass('red');
+        }
+    });
+  })
+
 </script>

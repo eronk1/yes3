@@ -1,4 +1,7 @@
 <script>
+let checkUser = false;
+let checkPass = false;
+
 
 $('#backButton').on('click',()=>{
     location.href = "/";
@@ -7,6 +10,49 @@ $('#signUpButton').on('click',()=>{
     location.href = "/signUp";
 })
 $('#submitButton').on('click',()=>{
-    $('form').submit();
+    if(checkUser&&checkPass){
+        $('form').submit();
+    }else{
+        $('#userErrorText').text('Username and password required');
+    }
 })
+
+$('#name').keyup(function(){
+    checkUser = true;
+    if($(this).val() == ''){
+        checkUser = false;
+    }
+})
+$('#password').keyup(function(){
+    checkPass = true;
+    if($(this).val() == ''){
+        checkPass = false;
+    }
+})
+$(document).ready(function() {
+    $('#name').keypress(function(event) {
+        if (event.which == 13) {
+            event.preventDefault();
+            $(event.target).blur();
+            $('#password').focus();
+            if(checkUser&&checkPass){
+            $('form').submit();
+            }
+        }
+    });
+  
+    $('#password').keypress(function(event) {
+    if (event.which == 13) {
+        event.preventDefault();
+        $(event.target).blur();
+        $('#next-input').focus();
+        if(checkUser&&checkPass){
+        $('form').submit();
+        }else{
+            $('#userErrorText').text('Username and password required');
+        }
+    }
+  });
+});
+
 </script>
