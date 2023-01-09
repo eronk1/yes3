@@ -1,0 +1,43 @@
+
+
+<div id="sideButtons">
+    <div id="nameDiv">
+        <p id="name"><%=name%></p>
+    </div>
+    <div id="levelHead">
+        <p id="level">Level <%=Level%></p>
+        <progress id="progressBar" value="0" max="100">10/100</progress>
+    </div>
+    <div id="settings">
+        <div id="gearIconParent">
+            <span id="gearIcon">&#9881;</span>
+        </div>
+        <div id="listParent">
+            <ul id="list" class="visible">
+                <div id="settingsTriangle" class="settingsParElement"></div>
+                <div id="items" class="settingsParElement">
+                    <div id="settingsItem1" class="settingsParElement">
+                        <p class="settingsParElement">Settings</p>
+                    </div>
+                    <div id="settingsItem2" class="settingsParElement">
+                        <p class="settingsParElement">Shop</p>
+                    </div>
+                    <div id="settingsItem3" class="settingsParElement">
+                        <p class="settingsParElement">Logout</p>
+                    </div>
+                </div>
+            </ul>
+        </div>
+        <div class="hide">
+            <form id="submitButtonForm" action="/logout" method="POST">
+                <button id="logoutButton">Logout</button>
+            </form>
+        </div>
+    </div>
+</div>
+<section class="Levels">
+    <div id="chooseLevel">
+        <a href="/Integrated1">Math</a>
+    </div>
+</section>
+<img id="mathPicture" src="/loveMathALOT.png" alt="Image failed to load :(">

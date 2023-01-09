@@ -4,6 +4,10 @@
          usernames.push("<%=username%>");
     // <%}%>
     //password 6-72
+    //<%if(!status&&message!=null){%>
+        $('#name').addClass('wrongInput');
+        $('#userErrorText').text("Something went wrong :(");
+    //<%}%>
     let checkUser = false;
     let checkPass = false;
     let checkCPass = false;
@@ -17,7 +21,7 @@
             $('#name').addClass('wrongInput');
             $('#userErrorText').text('Please Input Username');
         }
-        else if(!/^[a-zA-Z]+$/.test($(this).val().replace(/[0-9]/g, ''))){
+        else if(!/^[a-zA-Z_]+$/.test($(this).val().replace(/[0-9]/g, ''))){
             if($('#name').hasClass('correctInput')){
                 $('#name').removeClass('correctInput')
             }
@@ -71,7 +75,10 @@
                 if($('#password').hasClass('correctInput')){
                     $('#password').removeClass('correctInput')
                 }
-                $('#password').addClass('wrongInput');
+                if($('#confirmPassword').hasClass('correctInput')){
+                $('#confirmPassword').removeClass('correctInput')
+            }
+            $('#password').addClass('wrongInput');
                 $('#passErrorText').text('Password must be 6-72 characters long');
             }
             if(checkPass){
@@ -80,6 +87,24 @@
                 }
                 $('#passErrorText').text('');
                 $('#password').addClass('correctInput');
+            }
+            checkCPass = true;
+            if($('#confirmPassword').val() == ''){
+                checkCPass = false;
+            }else if($('#confirmPassword').val() !== currentPass){
+                checkCPass = false;
+                if($('#confirmPassword').hasClass('correctInput')){
+                    $('#confirmPassword').removeClass('correctInput')
+                }
+                $('#confirmPassword').addClass('wrongInput');
+                $('#cPassErrorText').text('Passwords do not match');
+            }
+            if(checkCPass && checkPass){
+                if($('#confirmPassword').hasClass('wrongInput')){
+                    $('#confirmPassword').removeClass('wrongInput')
+                }
+                $('#cPassErrorText').text('');
+                $('#confirmPassword').addClass('correctInput');
             }
         }
     });
@@ -128,8 +153,6 @@
         }
     })
     $('#submitButton').on('click',()=>{
-        console.log("submitting form");
-        console.log($('#name').val());
         $('#signUpForm').submit();
     });
     $('#backButton').on('click',()=>{

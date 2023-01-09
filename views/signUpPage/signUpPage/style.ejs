@@ -9,6 +9,19 @@ body{
     display: grid;
     grid-template-rows: 10% 80% 10%;
 }
+button{
+    user-select: none;
+}
+button:hover{
+    cursor: default;
+    transition: 0.05s;
+    transform: scale(1.03);
+}
+button:active{
+    cursor: default;
+    transition: 0.05s;
+    transform: scale(0.98);
+}
 label{
     display: block;
     font-size: 20px;
@@ -35,6 +48,7 @@ p{
     border: 5px solid rgba(0, 100, 0, 0.4) !important;
     color: #0000005c !important;
     pointer-events: none !important;
+    user-select: none;
 }
 .wrongInput{
     border: 5px solid red !important;
@@ -96,6 +110,7 @@ p{
     display: grid;
     grid-template-rows: 24% 60% 16%;
     height: 70%;
+    border-radius: 5px;
 }
 #buttonHeights{
     text-align: center;

@@ -9,6 +9,29 @@
         margin: 0px;
         grid-template-rows: 10% 80%;
     }
+    button:hover{
+        cursor: default;
+        transition: 0.05s;
+        transform: scale(1.03);
+    }
+    button:active{
+        cursor: default;
+        transition: 0.05s;
+        transform: scale(0.98);
+    }
+    input{
+        user-select: none;
+    }
+    input:focus {
+        outline: none !important;
+    }
+    #userErrorText{
+        height: 20px;
+        color: red;
+        font-family: monospace;
+        font-size: 15px;
+        font-weight: bold;
+    }
     #sideButtons{
         display: grid;
         grid-template-columns: 50% 50%;
@@ -51,7 +74,7 @@
     }
     #userForm{
         display: grid;
-        grid-template-rows: 46% 27% 27%;
+        grid-template-rows: 50% 25% 25%;
         place-content: center;
         margin-right: 30px;
         margin-left: 30px;
@@ -64,7 +87,7 @@
         height: 40px;
         width: 330px;
         border-width: 10px;
-        border: 8px solid #5a5a5a;
+        border: 6px solid #5a5a5a;
         border-radius: 5px;
         font-size: 22px;
         padding-left: 8px;

@@ -1,4 +1,50 @@
 <script>
-    $('#logoutButton').on('click',()=>{
-    })
+let nameWidth = $("#name").width();
+if(nameWidth>=330&&nameWidth<=400){
+    $("#name").css("font-size", "30px");
+}else if(nameWidth>=400&&nameWidth<=500){
+    $("#name").css("font-size", "24px");
+}else if(nameWidth>=500&&nameWidth<=600){
+    $("#name").css("font-size", "22px");
+}else if(nameWidth>=600){
+    $("#name").css("font-size", "20px");
+}
+let activeGear = false;
+
+ $('#gearIcon').on("click", () => {
+    if ($('#list').hasClass("show")) {
+        $('#list').removeClass("show");
+    } else {
+        $('#list').addClass("show");
+    }
+    if(!activeGear){
+        activeGear=true;
+        $('#gearIcon').addClass("gearActiveColor");
+    }else{
+        activeGear=false;
+        $('#gearIcon').removeClass("gearActiveColor");
+    }
+  });
+  $(document).on("click", function(event) {
+    if (!event.target.classList.contains('settingsParElement')&&event.target.id!='gearIcon'&&activeGear) {
+        console.log("Activatd")
+        $('#gearIcon').removeClass("gearActiveColor");
+        $('#list').removeClass("show");
+        activeGear=false;
+    }
+});
+  $('#settingsItem3').on('click',()=>{
+    $.ajax({
+        type: "POST",
+        url: "/logout",
+        success: function(response) {
+            console.log("Successfully logged out")
+            window.location.href = "/";
+        },
+        error: function(error) {
+            $('#settingsItem3').addClass('red');
+        }
+    });
+  })
+
 </script>

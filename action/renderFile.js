@@ -1,12 +1,12 @@
 const findUsername = require('./signUp').findUsername;
 
 const starterPage = (req,res)=>{res.render('starterPage/starter')};
-const homePage = (req,res)=>{res.render('homePage/home',{name: req.user[0].Username})};
+const homePage = (req,res)=>{res.render('homePage/home',{name: req.user[0].Username,Level:req.user[0].Level,xp:req.user[0].xp,Points:req.user[0].Points})};
 
 const signUp = (req,res)=>{
     findUsername.then(value => res.render('signUpPage/signUp',{status:true,problem:0, message:"Something went wrong",Username: value}))
 };
-const login = (req,res)=>{res.render('loginPage/login')};
+const login = (req,res)=>{res.render('loginPage/login',{message:req.flash('error')})};
 const integrated1 = (req,res)=>{res.render('integrated1Views/integrated1')};
 const integrated1Variables = (req,res)=>{res.render('integrated1Views/variables')};
 
