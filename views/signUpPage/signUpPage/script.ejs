@@ -62,27 +62,35 @@
     $('#password').keyup(function(){
         checkPass = true;
         currentPass = $(this).val();
-        if($(this).val().length<6||$(this).val().length>72){
+        if(!checkUser){
             checkPass = false;
-            if($('#password').hasClass('correctInput')){
-                $('#password').removeClass('correctInput')
+            $('#passErrorText').text('Username must be set first');
+        }else{
+            if($(this).val().length<6||$(this).val().length>72){
+                checkPass = false;
+                if($('#password').hasClass('correctInput')){
+                    $('#password').removeClass('correctInput')
+                }
+                $('#password').addClass('wrongInput');
+                $('#passErrorText').text('Password must be 6-72 characters long');
             }
-            $('#password').addClass('wrongInput');
-            $('#passErrorText').text('Password must be 6-72 characters long');
-        }
-        if(checkPass){
-            if($('#password').hasClass('wrongInput')){
-                $('#password').removeClass('wrongInput')
+            if(checkPass){
+                if($('#password').hasClass('wrongInput')){
+                    $('#password').removeClass('wrongInput')
+                }
+                $('#passErrorText').text('');
+                $('#password').addClass('correctInput');
             }
-            $('#passErrorText').text('');
-            $('#password').addClass('correctInput');
         }
     });
     $('#confirmPassword').keyup(function(){
         checkCPass = true;
-        if(!checkPass){
+        if(!checkUser){
             checkCPass = false;
-            $('#cPassErrorText').text('Please input a valid Password first')
+            $('#cPassErrorText').text('Username must be set first')
+        }else if(!checkPass){
+            checkCPass = false;
+            $('#cPassErrorText').text('Password must be set first')
         }else{
             if($(this).val() == ''){
                 checkCPass = false;
@@ -130,5 +138,4 @@
     $('#loginButton').on('click',()=>{
         location.href = "/login";
     })
-     console.log(usernames[0])
 </script>
