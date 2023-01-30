@@ -8,6 +8,10 @@
         $('#name').addClass('wrongInput');
         $('#userErrorText').text("Something went wrong :(");
     //<%}%>
+
+    if ($(window).width() < 560) {
+        $('#backButton').text('Back');
+    }
     let checkUser = false;
     let checkPass = false;
     let checkCPass = false;

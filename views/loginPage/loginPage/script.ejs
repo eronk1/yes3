@@ -1,7 +1,11 @@
 <script>
 let checkUser = false;
 let checkPass = false;
-$('#userErrorText').text("<%=message%>");
+//<%try{%>
+    $('#userErrorText').text("<%=message%>");
+//<%}catch(e){%>
+    console.log(e);
+//<%}%>
 
 $('#backButton').on('click',()=>{
     location.href = "/";
