@@ -10,6 +10,9 @@ if(nameWidth>=330&&nameWidth<=400){
     $("#name").css("font-size", "20px");
 }
 let activeGear = false;
+let roundedMaxProgress = Math.round(parseInt("<%=100*(1.5 **(Level-1))%>"));
+$("#progressBar").attr("value", parseInt("<%=Points%>"));
+$("#progressBar").attr("max",roundedMaxProgress);
 
  $('#gearIcon').on("click", () => {
     if ($('#list').hasClass("show")) {

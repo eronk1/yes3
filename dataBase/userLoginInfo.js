@@ -1,7 +1,11 @@
 const mongoose = require('mongoose');
 const userSchema = new mongoose.Schema({
     Username:'String',
-    Password:'String'
+    Password:'String',
+    Level: Number,
+    Points: Number,
+    xp: Number
+
 })
 const user = mongoose.model("userInfo",userSchema);
 async function run(username,password){

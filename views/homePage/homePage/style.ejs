@@ -6,8 +6,6 @@ html,body{
 body{
     background-color: #87fff6;
     margin: 0px;
-    display: grid;
-    grid-template-rows: 14% 22% 64%;
 }
 h1{
     text-align: center;
@@ -152,7 +150,7 @@ progress::-webkit-progress-bar {
   transition: width 0.5s;
 }
 #progressBar::before {
-    content: "10/100";
+    content: "<%=Points%>/<%=Math.round(100*(1.5 **(Level-1)))%>";
     position: absolute;
     top: 50%;
     left: 50%;
@@ -163,6 +161,7 @@ progress::-webkit-progress-bar {
 }
   
 #sideButtons{
+    height: 130px;
     width: 100%;
     display: grid;
     grid-template-columns: 28% 44% 28%;
