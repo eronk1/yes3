@@ -11,6 +11,13 @@ if(nameWidth>=330&&nameWidth<=400){
 }
 let activeGear = false;
 let roundedMaxProgress = Math.round(parseInt("<%=100*(1.5 **(Level-1))%>"));
+
+$(window).resize(function() {
+    let height = $(window).height();
+    console.log(height)
+
+});
+
 $("#progressBar").attr("value", parseInt("<%=Points%>"));
 $("#progressBar").attr("max",roundedMaxProgress);
 
