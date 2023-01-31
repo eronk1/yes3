@@ -1,20 +1,38 @@
 <script>
 let nameWidth = $("#name").width();
+const nameFontSize = 38;
 if(nameWidth>=330&&nameWidth<=400){
     $("#name").css("font-size", "30px");
+    nameFontSize = 30;
 }else if(nameWidth>=400&&nameWidth<=500){
     $("#name").css("font-size", "24px");
+    nameFontSize = 24;
 }else if(nameWidth>=500&&nameWidth<=600){
     $("#name").css("font-size", "22px");
+    nameFontSize = 22;
 }else if(nameWidth>=600){
     $("#name").css("font-size", "20px");
+    nameFontSize = 20;
 }
 let activeGear = false;
 let roundedMaxProgress = Math.round(parseInt("<%=100*(1.5 **(Level-1))%>"));
-
+function windowResizeCssChange(height,width){
+    if(width<=1400){
+        $('#settings').css("justify-self","center");
+        $('#settings').css("margin-right","0px");
+    }
+    if(width<=1300){
+        $('#progressBar').css("width","450px");
+        $('#progressBar').css("height","38px");
+        $('#level').css("font-size","36px");
+        $("#name").css("font-size",`${nameFontSize-8}px`);
+    }
+}
+windowResizeCssChange($(window).height(),$(window).width());
 $(window).resize(function() {
     let height = $(window).height();
-    console.log(height)
+    let width = $(window).width();
+    windowResizeCssChange(height,width);
 
 });
 
