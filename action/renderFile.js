@@ -8,9 +8,9 @@ const signUp = (req,res)=>{
 };
 const login = (req,res)=>{res.render('loginPage/login',{message:req.flash('error')})};
 const integrated1 = (req,res)=>{res.render('integrated1Views/integrated1')};
-const integrated1Variables = (req,res)=>{res.render('integrated1Views/variablesStart')};
-const integrated1VariablesStart = (req,res)=>{res.render('integrated1Views/variablesReady')};
-const integrated1VariablesOptions = (req,res)=>{res.render('integrated1Views/variablesOptions')};
+const integrated1Variables = (req,res)=>{res.render('integrated1Views/variables/variablesStart')};
+const integrated1VariablesStart = (req,res)=>{res.render('integrated1Views/variables/variablesReady')};
+const integrated1VariablesOptions = (req,res)=>{res.render('integrated1Views/variables/variablesOptions')};
 
 module.exports.starterPage = starterPage;
 module.exports.homePage = homePage;
