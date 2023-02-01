@@ -8,11 +8,15 @@ const signUp = (req,res)=>{
 };
 const login = (req,res)=>{res.render('loginPage/login',{message:req.flash('error')})};
 const integrated1 = (req,res)=>{res.render('integrated1Views/integrated1')};
-const integrated1Variables = (req,res)=>{res.render('integrated1Views/variables')};
+const integrated1Variables = (req,res)=>{res.render('integrated1Views/variablesStart')};
+const integrated1VariablesStart = (req,res)=>{res.render('integrated1Views/variablesReady')};
+const integrated1VariablesOptions = (req,res)=>{res.render('integrated1Views/variablesOptions')};
 
 module.exports.starterPage = starterPage;
 module.exports.homePage = homePage;
 module.exports.signUp = signUp;
 module.exports.login = login;
 module.exports.integrated1 = integrated1;
+module.exports.integrated1VariablesOptions = integrated1VariablesOptions;
+module.exports.integrated1VariablesStart = integrated1VariablesStart;
 module.exports.integrated1Variables = integrated1Variables;

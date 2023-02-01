@@ -1,0 +1,128 @@
+<script>
+    let nameWidth = $("#name").width();
+const nameFontSize = 38;
+if(nameWidth>=330&&nameWidth<=400){
+    $("#name").css("font-size", "30px");
+    nameFontSize = 30;
+}else if(nameWidth>=400&&nameWidth<=500){
+    $("#name").css("font-size", "24px");
+    nameFontSize = 24;
+}else if(nameWidth>=500&&nameWidth<=600){
+    $("#name").css("font-size", "22px");
+    nameFontSize = 22;
+}else if(nameWidth>=600){
+    $("#name").css("font-size", "20px");
+    nameFontSize = 20;
+}
+function windowResizeCssChange(height,width){
+    if(width<=1400){
+        $('#settings').css({
+            "justify-self":"center",
+            "margin-right":'0px'
+        });
+    }
+    if(1100<width&&width<=1300){
+        $('#progressBar').css({
+            "width":"450px",
+            "height":"38px"
+        });
+        $('#level').css("font-size","36px");
+        $("#name").css({
+            "font-size":`${nameFontSize-8}px`
+        });
+    }
+    if(980<width&&width<=1100){
+        $('#progressBar').css({
+            "width":"400px",
+            "height":"34px"
+        });
+        $('#gearIcon').css({
+            "font-size":"65px",
+            "width":"90px",
+            "height":"90px"
+        })
+        $('#name').css({
+            "font-size":`${nameFontSize-12}px`
+        });
+        $('#level').css("font-size","34px");
+        $('#menuDiv').css({
+            "display":"none"
+        })
+        $('#nameDiv').css({
+            "display":"grid"
+        })
+        $('#sideButtons').css({
+            "grid-template-columns":"27% 44% 27%"
+        })
+    }
+    if(740<width&&width<=980){
+        $('#progressBar').css({
+            "width":"400px",
+            "height":"34px"
+        });
+        $('#gearIcon').css({
+            "font-size":"65px",
+            "width":"90px",
+            "height":"90px"
+        })
+        $('#level').css("font-size","34px");
+        $('#menuDiv').css({
+            "display":"grid"
+        })
+        $('#nameDiv').css({
+            "display":"none"
+        })
+        $('#items p').css({
+            "font-size":"20px"
+        })
+        $('#items').css({
+            "width":"120px",
+            "height":"130px"
+        })
+        $('#sideButtons').css({
+            "grid-template-columns":"20% 60% 20%"
+        })
+    }
+    if(400<width&&width<=740){
+        $('#progressBar').css({
+            "width":"300px",
+            "height":"34px"
+        });
+        $('#gearIcon').css({
+            "font-size":"56px",
+            "width":"75px",
+            "height":"75px"
+        })
+        $('#level').css("font-size","34px");
+        $('#menuDiv').css({
+            "display":"grid"
+        })
+        $('#menuIcon').css({
+            "height":"45px",
+            "width":"45px"
+        })
+        $('#nameDiv').css({
+            "display":"none"
+        })
+        $('#items p').css({
+            "font-size":"16px",
+            "font-weight":"bold"
+        })
+        $('#items').css({
+            "width":"95px",
+            "height":"110px"
+        })
+        $('#sideButtons').css({
+            "grid-template-columns":"15% 70% 15%"
+        })
+    }
+}
+windowResizeCssChange($(window).height(),$(window).width());
+$(window).resize(function() {
+    let height = $(window).height();
+    let width = $(window).width();
+    windowResizeCssChange(height,width);
+
+});
+
+</script>
