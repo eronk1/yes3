@@ -7,16 +7,16 @@ const signUp = (req,res)=>{
     findUsername.then(value => res.render('signUpPage/signUp',{status:true,problem:0, message:"Something went wrong",Username: value}))
 };
 const login = (req,res)=>{res.render('loginPage/login',{message:req.flash('error')})};
-const integrated1 = (req,res)=>{res.render('integrated1Views/integrated1')};
-const integrated1Variables = (req,res)=>{res.render('integrated1Views/variables/variablesStart')};
-const integrated1VariablesStart = (req,res)=>{res.render('integrated1Views/variables/variablesReady')};
-const integrated1VariablesOptions = (req,res)=>{res.render('integrated1Views/variables/variablesOptions')};
+const sat = (req,res)=>{res.render('satViews/sat')};
+const satVariables = (req,res)=>{res.render('satViews/variables/variablesStart')};
+const satVariablesStart = (req,res)=>{res.render('satViews/variables/variablesReady')};
+const satVariablesOptions = (req,res)=>{res.render('satViews/variables/variablesOptions')};
 
 module.exports.starterPage = starterPage;
 module.exports.homePage = homePage;
 module.exports.signUp = signUp;
 module.exports.login = login;
-module.exports.integrated1 = integrated1;
-module.exports.integrated1VariablesOptions = integrated1VariablesOptions;
-module.exports.integrated1VariablesStart = integrated1VariablesStart;
-module.exports.integrated1Variables = integrated1Variables;
+module.exports.sat = sat;
+module.exports.satVariablesOptions = satVariablesOptions;
+module.exports.satVariablesStart = satVariablesStart;
+module.exports.satVariables = satVariables;

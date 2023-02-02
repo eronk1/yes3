@@ -34,10 +34,10 @@ app.get('/home',checkAuth,renderFile.homePage)//home page after login
 app.get('/signUp',checkNotAuth,renderFile.signUp);//sends user to sign up page
 app.get('/login',checkNotAuth,renderFile.login);//login page
 
-app.get('/Integrated1',checkAuth,renderFile.integrated1);//Math 1 page
-app.get('/Integrated1/variables',checkAuth,renderFile.integrated1VariablesOptions);
-app.get('/Integrated1/variables/practiceQuiz/start',checkAuth,renderFile.integrated1VariablesStart);
-app.get('/Integrated1/variables/practiceQuiz',checkAuth,renderFile.integrated1Variables);
+app.get('/sat/practice',checkAuth,renderFile.sat);//Math 1 page
+app.get('/sat/variables',checkAuth,renderFile.satVariablesOptions);
+app.get('/sat/variables/practiceQuiz/start',checkAuth,renderFile.satVariablesStart);
+app.get('/sat/variables/practiceQuiz',checkAuth,renderFile.satVariables);
 
 app.post('/signUp',checkNotAuth,(req,res)=>{signUp(req,res)});//POST request to sign up
 app.post('/login',checkNotAuth,initializePassport.authenticateRedirect);//passport.authenticate failure/success redirect
