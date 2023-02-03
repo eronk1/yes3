@@ -35,9 +35,7 @@ app.get('/signUp',checkNotAuth,renderFile.signUp);//sends user to sign up page
 app.get('/login',checkNotAuth,renderFile.login);//login page
 
 app.get('/sat/practice',checkAuth,renderFile.sat);//Math 1 page
-app.get('/sat/variables',checkAuth,renderFile.satVariablesOptions);
-app.get('/sat/variables/practiceQuiz/start',checkAuth,renderFile.satVariablesStart);
-app.get('/sat/variables/practiceQuiz',checkAuth,renderFile.satVariables);
+app.get('/sat/practice/lawsOfExponents',checkAuth,renderFile.satLawsOfExponents);
 
 app.post('/signUp',checkNotAuth,(req,res)=>{signUp(req,res)});//POST request to sign up
 app.post('/login',checkNotAuth,initializePassport.authenticateRedirect);//passport.authenticate failure/success redirect

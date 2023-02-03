@@ -8,15 +8,11 @@ const signUp = (req,res)=>{
 };
 const login = (req,res)=>{res.render('loginPage/login',{message:req.flash('error')})};
 const sat = (req,res)=>{res.render('satViews/sat')};
-const satVariables = (req,res)=>{res.render('satViews/variables/variablesStart')};
-const satVariablesStart = (req,res)=>{res.render('satViews/variables/variablesReady')};
-const satVariablesOptions = (req,res)=>{res.render('satViews/variables/variablesOptions')};
+const satLawsOfExponents = (req,res)=>{res.render('satViews/satQuizzes/lawsOfExponents')};
 
 module.exports.starterPage = starterPage;
 module.exports.homePage = homePage;
 module.exports.signUp = signUp;
 module.exports.login = login;
 module.exports.sat = sat;
-module.exports.satVariablesOptions = satVariablesOptions;
-module.exports.satVariablesStart = satVariablesStart;
-module.exports.satVariables = satVariables;
+module.exports.satLawsOfExponents = satLawsOfExponents;
