@@ -21,7 +21,7 @@ $("#progressBar").attr("max",roundedMaxProgress);
   });
   $(document).on("click", function(event) {
     if (!event.target.classList.contains('settingsParElement')&&event.target.id!='gearIcon'&&activeGear) {
-        console.log("Activatd")
+        //console.log("Activatd")
         $('#gearIcon').removeClass("gearActiveColor");
         $('#list').removeClass("show");
         activeGear=false;
@@ -32,7 +32,7 @@ $("#progressBar").attr("max",roundedMaxProgress);
         type: "POST",
         url: "/logout",
         success: function(response) {
-            console.log("Successfully logged out")
+            //console.log("Successfully logged out")
             window.location.href = "/";
         },
         error: function(error) {

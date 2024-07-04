@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt');
 const { find } = require('../dataBase/userLoginInfo');
 
 const run = async (req,res)=>{
-    console.log("HIIIIIIII")
+    //console.log("HIIIIIIII")
     let user = req.body.username;
     let pass = req.body.password;
     let confirmPass = req.body.confirmPassword;

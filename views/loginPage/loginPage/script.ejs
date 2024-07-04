@@ -4,7 +4,7 @@ let checkPass = false;
 //<%try{%>
     $('#userErrorText').text("<%=message%>");
 //<%}catch(e){%>
-    console.log(e);
+    //console.log(e);
 //<%}%>
 
 $('#backButton').on('click',()=>{
@@ -14,7 +14,7 @@ $('#signUpButton').on('click',()=>{
     location.href = "/signUp";
 })
 $('#submitButton').on('click',()=>{
-    if(checkUser&&checkPass){
+    if($('#name').val() != ''&&$('#password').val() != ''){
         $('form').submit();
     }else{
         $('#userErrorText').text('Username and password required');

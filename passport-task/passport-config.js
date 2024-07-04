@@ -9,19 +9,19 @@ function initializePassport(passport,getUserByUsername,getUserById){
     const authenticateUser = async (username,password,done)=>{
         const user = await getUserByUsername(username)
         if(user[0]==null){
-            console.log("user incorect")
+            //console.log("user incorect")
             return done(null,false,{message:"Username or Password Incorrect"})
         }
         try{
             if(await bcrypt.compare(password,user[0].Password)){
                 return done(null,user)
             }else{
-                console.log(user[0])
-                console.log("Pass incorect")
+                //console.log(user[0])
+                //console.log("Pass incorect")
                 return done(null,false,{message: 'Username or Password Incorrect'})
             }
         }catch(e){
-            console.log("errored")
+            //console.log("errored")
             return done(null,false,{message: 'Something went wrong'})
         }
     }

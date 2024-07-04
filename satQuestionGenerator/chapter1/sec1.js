@@ -1,4 +1,4 @@
-// Laws of exponents
+// Solving Linear Equations by Substitution
 
 //randomizes the choices
 function randomizer(array){

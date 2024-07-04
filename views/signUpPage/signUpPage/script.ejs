@@ -145,8 +145,8 @@
             }
         }
     })
-    $('input').keyup(function(){
-        if(checkUser && checkCPass && checkPass){
+    $('input').on('input',function(){
+        if($('#name').val() != ''&&$('#password').val() != ''&&$('#confirmPassword').val() != ''){
             if($('#submitButton').hasClass('nonClickableButton')){
                 $('#submitButton').removeClass('nonClickableButton')
             }

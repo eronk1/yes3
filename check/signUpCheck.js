@@ -7,10 +7,10 @@ const check = async function (username,password,confirmPassword){
     let run = async ()=>{
         let usercount = await userC.find({Username:username}).count()
         if(usercount>0){
-            console.log('Username taken')
+            //console.log('Username taken')
             return 1
         }else{
-            console.log('Valid username and password')
+            //console.log('Valid username and password')
             return 0//username and password is valid(permission to sign up)
         }
       }
@@ -28,7 +28,7 @@ const check = async function (username,password,confirmPassword){
         return 6//something went wrongS
     }
 }
-//async function hi(){findUsers.then(value => console.log(value))}
+//async function hi(){findUsers.then(value => //console.log(value))}
 //hi();
 
 
