@@ -37,6 +37,8 @@ app.get('/login',checkNotAuth,renderFile.login);//login page
 app.get('/sat/practice',checkAuth,renderFile.sat);//Math 1 page
 app.get('/sat/practice/lawsOfExponents',checkAuth,renderFile.satLawsOfExponents);
 
+app.get('/health', (req,res) => res.status(200));
+
 app.post('/signUp',checkNotAuth,(req,res)=>{signUp(req,res)});//POST request to sign up
 app.post('/login',checkNotAuth,initializePassport.authenticateRedirect);//passport.authenticate failure/success redirect
 app.post('/logout',checkAuth, function(req, res, next) {
